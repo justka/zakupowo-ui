@@ -1,0 +1,10 @@
+@mixin animate($what: all, $howLong: 0.2s) {
+  transition: $what $howLong;
+}
+
+@mixin useFlex($justifyContent: "") {
+  display: flex;
+  @if $justifyContent!= "" {
+    justify-content: $justifyContent;
+  }
+}

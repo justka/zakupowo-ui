@@ -1,0 +1,58 @@
+@import "styles/colors.scss";
+
+.checkbox__label {
+  color: $textColor;
+  cursor: pointer;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  &:hover {
+    .checkbox__checkbox ~ .checkbox__checkmark {
+      background-color: $white;
+    }
+  }
+  .checkbox__checkbox {
+    cursor: pointer;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    &:checked ~ .checkbox__checkmark {
+      background-color: $primaryColor;
+      &:after {
+        display: block;
+      }
+    }
+  }
+  .checkbox__checkmark {
+    background-color: $white;
+    border: solid 1px $primaryColor;
+    border-radius: 4px;
+    height: 16px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 16px;
+    &:after {
+      border: solid $white;
+      border-width: 0 1px 1px 0;
+      content: "";
+      display: none;
+      height: 6px;
+      left: 5px;
+      position: absolute;
+      top: 3px;
+      transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      width: 3px;
+    }
+  }
+}

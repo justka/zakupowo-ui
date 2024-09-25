@@ -1,0 +1,13 @@
+@import "styles/colors.scss";
+@import "styles/mixins.scss";
+
+.button {
+  &__button {
+    @include useFlex();
+    background-color: $primaryColor;
+    border-radius: 4px;
+    color: $white;
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+}
