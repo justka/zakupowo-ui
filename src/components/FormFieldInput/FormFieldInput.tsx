@@ -12,10 +12,10 @@ export function FormFieldInput({
         <div>
           <Input
             id={fieldConfiguration.id}
+            label={fieldConfiguration.label}
             onBlur={input.onBlur}
             onChange={input.onChange}
             onFocus={input.onFocus}
-            label={fieldConfiguration.label}
             type={fieldConfiguration.inputType}
             value={input.value}
           />

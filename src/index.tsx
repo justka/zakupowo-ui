@@ -1,9 +1,9 @@
-import ReactDOM from "react-dom";
-import reportWebVitals from "./reportWebVitals";
 import "styles/reset.css";
 import "styles/commonStyles.scss";
-import { BrowserRouter } from "react-router-dom";
 import { Routing } from "components/Routing/Routing";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
 
 const application = (
   <BrowserRouter>

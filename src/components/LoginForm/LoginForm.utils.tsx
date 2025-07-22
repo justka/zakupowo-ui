@@ -7,27 +7,27 @@ export const fieldsConfig: FieldConfigType[] = [
   {
     fieldType: "input",
     id: "login",
+    inputType: "text",
     label: "Login",
     name: "login",
-    inputType: "text",
   },
   {
     fieldType: "input",
     id: "password",
+    inputType: "password",
     label: "Password",
     name: "password",
-    inputType: "password",
   },
   {
     fieldType: "anchor",
     target: MENU.FORGET_PASSWORD,
     text: "Nie pamiętasz hasła?",
   },
-  { fieldType: "button", text: "Zaloguj się", buttonType: "submit" },
+  { buttonType: "submit", fieldType: "button", text: "Zaloguj się" },
   { fieldType: "text", text: "Nie masz jeszcze konta?" },
   {
     fieldType: "button",
-    text: "Utwórz konto",
     target: MENU.REGISTER,
+    text: "Utwórz konto",
   },
 ];

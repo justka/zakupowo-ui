@@ -1,5 +1,5 @@
-import { CheckboxInterface } from "./Checkbox.interface";
 import "./Checkbox.scss";
+import { CheckboxInterface } from "./Checkbox.interface";
 
 export function Checkbox({
   id,

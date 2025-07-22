@@ -1,7 +1,7 @@
-import { Routes, Route } from "react-router-dom";
 import { Layout } from "components/Layout/Layout";
-import { routesConfig } from "./Routing.utils";
+import { Route, Routes } from "react-router-dom";
 import { RouteConfigInterface } from "./Routing.interface";
+import { routesConfig } from "./Routing.utils";
 
 export function Routing() {
   return (

@@ -1,6 +1,6 @@
+import "./Button.scss";
 import { Link } from "react-router-dom";
 import { ButtonInteface } from "./Button.interface";
-import "./Button.scss";
 
 export function Button({
   onClick = () => {},
@@ -9,7 +9,11 @@ export function Button({
   type = "button",
 }: ButtonInteface) {
   const button = (
-    <button className="button__button" onClick={onClick} type={type}>
+    <button
+      className="button__button"
+      onClick={onClick}
+      type={type}
+    >
       {text}
     </button>
   );

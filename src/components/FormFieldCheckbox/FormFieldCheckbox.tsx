@@ -15,10 +15,10 @@ export function FormFieldCheckbox({
         <div>
           <Checkbox
             id={fieldConfiguration.id || ""}
+            label={fieldConfiguration.label}
             onBlur={input.onBlur}
             onChange={input.onChange}
             onFocus={input.onFocus}
-            label={fieldConfiguration.label}
           />
           {meta.touched && meta.error && <span>{meta.error}</span>}
         </div>

@@ -8,22 +8,22 @@ import { RouteConfigInterface } from "./Routing.interface";
 export const routesConfig: RouteConfigInterface[] = [
   {
     component: <App />,
-    path: MENU.START,
     layoutVariant: LAYOUT_VARIANT.AFTER_LOGIN,
+    path: MENU.START,
   },
   {
     component: <LoginPage />,
-    path: MENU.LOGIN,
     layoutVariant: LAYOUT_VARIANT.BEFORE_LOGIN,
+    path: MENU.LOGIN,
   },
   {
     component: <RegisterPage />,
-    path: MENU.REGISTER,
     layoutVariant: LAYOUT_VARIANT.BEFORE_LOGIN,
+    path: MENU.REGISTER,
   },
   {
     component: <>404</>,
-    path: "*",
     layoutVariant: LAYOUT_VARIANT.ERROR_404_PAGE,
+    path: "*",
   },
 ];

@@ -1,12 +1,12 @@
-import { Form as ReactFinalForm } from "react-final-form";
-import { Button } from "components/UI/Button/Button";
-import { Link } from "react-router-dom";
-import { FIELD_TYPE } from "constants/fieldTypes";
-import { Text } from "components/UI/Text/Text";
-import { FormInterface } from "./Form.interface";
-import { FormFieldInput } from "../../FormFieldInput/FormFieldInput";
 import { FormFieldCheckbox } from "components/FormFieldCheckbox/FormFieldCheckbox";
 import { FormFieldUnsupportedType } from "components/FormFieldUnsupportedType/FormFieldUnsupportedType";
+import { Button } from "components/UI/Button/Button";
+import { Text } from "components/UI/Text/Text";
+import { FIELD_TYPE } from "constants/fieldTypes";
+import { Form as ReactFinalForm } from "react-final-form";
+import { Link } from "react-router-dom";
+import { FormFieldInput } from "../../FormFieldInput/FormFieldInput";
+import { FormInterface } from "./Form.interface";
 
 export function Form({ fields }: FormInterface) {
   return (
@@ -19,22 +19,6 @@ export function Form({ fields }: FormInterface) {
         <form onSubmit={handleSubmit}>
           {fields.map((fieldConfiguration) => {
             switch (fieldConfiguration.fieldType) {
-              case FIELD_TYPE.INPUT: {
-                return (
-                  <FormFieldInput
-                    key={fieldConfiguration.name}
-                    fieldConfiguration={fieldConfiguration}
-                  />
-                );
-              }
-              case FIELD_TYPE.TEXT: {
-                return (
-                  <Text
-                    key={fieldConfiguration.text}
-                    text={fieldConfiguration.text}
-                  />
-                );
-              }
               case FIELD_TYPE.ANCHOR: {
                 return (
                   <Link
@@ -58,8 +42,24 @@ export function Form({ fields }: FormInterface) {
               case FIELD_TYPE.CHECKBOX: {
                 return (
                   <FormFieldCheckbox
-                    key={fieldConfiguration.name}
                     fieldConfiguration={fieldConfiguration}
+                    key={fieldConfiguration.name}
+                  />
+                );
+              }
+              case FIELD_TYPE.INPUT: {
+                return (
+                  <FormFieldInput
+                    fieldConfiguration={fieldConfiguration}
+                    key={fieldConfiguration.name}
+                  />
+                );
+              }
+              case FIELD_TYPE.TEXT: {
+                return (
+                  <Text
+                    key={fieldConfiguration.text}
+                    text={fieldConfiguration.text}
                   />
                 );
               }
