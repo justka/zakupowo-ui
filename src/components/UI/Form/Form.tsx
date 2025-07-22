@@ -1,102 +1,74 @@
-import { Field, Form as ReactFinalForm } from "react-final-form";
-import { Button } from "../Button/Button";
-import { Input } from "../Input/Input";
+import { Form as ReactFinalForm } from "react-final-form";
+import { Button } from "components/UI/Button/Button";
 import { Link } from "react-router-dom";
 import { FIELD_TYPE } from "constants/fieldTypes";
-import { Text } from "../Text/Text";
+import { Text } from "components/UI/Text/Text";
 import { FormInterface } from "./Form.interface";
-import { Checkbox } from "../Checkbox/Checkbox";
+import { FormFieldInput } from "../../FormFieldInput/FormFieldInput";
+import { FormFieldCheckbox } from "components/FormFieldCheckbox/FormFieldCheckbox";
+import { FormFieldUnsupportedType } from "components/FormFieldUnsupportedType/FormFieldUnsupportedType";
 
 export function Form({ fields }: FormInterface) {
   return (
-    <>
-      <ReactFinalForm
-        onSubmit={(value) => {
-          console.log(value);
-        }}
-        //   validate={validate}
-        render={({ handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
-            {fields.map((field) => {
-              switch (field.fieldType) {
-                case FIELD_TYPE.INPUT: {
-                  return (
-                    <Field name={field.name}>
-                      {({ input, meta }) => {
-                        return (
-                          <div>
-                            <Input
-                              id={field?.id || ""}
-                              onBlur={input.onBlur}
-                              onChange={input.onChange}
-                              onFocus={input.onFocus}
-                              label={field.label}
-                              type={field.inputType}
-                              value={input.value}
-                            />
-                            {meta.touched && meta.error && (
-                              <span>{meta.error}</span>
-                            )}
-                          </div>
-                        );
-                      }}
-                    </Field>
-                  );
-                }
-                case FIELD_TYPE.TEXT: {
-                  return <Text>{field.text}</Text>;
-                }
-                case FIELD_TYPE.ANCHOR: {
-                  return <Link to={field?.target || ""}>{field.text}</Link>;
-                }
-                case FIELD_TYPE.BUTTON: {
-                  return (
-                    <Button
-                      target={field.target}
-                      text={field.text}
-                      type={field.buttonType}
-                    />
-                  );
-                }
-                case FIELD_TYPE.CHECKBOX: {
-                  return (
-                    <Field name={field.name} type="checkbox"> 
-                      {({ input, meta }) => {
-                        return (
-                          <div>
-                            <Checkbox
-                              id={field?.id || ""}
-                              onBlur={input.onBlur}
-                              onChange={input.onChange}
-                              onFocus={input.onFocus}
-                              label={<>{field.label}</>}
-                            />
-                            {/* <Input
-                              id={field?.id || ""}
-                              onBlur={input.onBlur}
-                              onChange={input.onChange}
-                              onFocus={input.onFocus}
-                              label={field.label}
-                              type={field.inputType}
-                              value={input.value}
-                            /> */}
-                            {meta.touched && meta.error && (
-                              <span>{meta.error}</span>
-                            )}
-                          </div>
-                        );
-                      }}
-                    </Field>
-                  );
-                }
-                default: {
-                  return <>Nieobsłużony typ pola</>;
-                }
+    <ReactFinalForm
+      onSubmit={(value) => {
+        // TODO: Handle form submission
+        console.log(value);
+      }}
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit}>
+          {fields.map((fieldConfiguration) => {
+            switch (fieldConfiguration.fieldType) {
+              case FIELD_TYPE.INPUT: {
+                return (
+                  <FormFieldInput
+                    key={fieldConfiguration.name}
+                    fieldConfiguration={fieldConfiguration}
+                  />
+                );
               }
-            })}
-          </form>
-        )}
-      />
-    </>
+              case FIELD_TYPE.TEXT: {
+                return (
+                  <Text
+                    key={fieldConfiguration.text}
+                    text={fieldConfiguration.text}
+                  />
+                );
+              }
+              case FIELD_TYPE.ANCHOR: {
+                return (
+                  <Link
+                    key={fieldConfiguration.text}
+                    to={fieldConfiguration.target}
+                  >
+                    {fieldConfiguration.text}
+                  </Link>
+                );
+              }
+              case FIELD_TYPE.BUTTON: {
+                return (
+                  <Button
+                    key={fieldConfiguration.text}
+                    target={fieldConfiguration.target}
+                    text={fieldConfiguration.text}
+                    type={fieldConfiguration.buttonType}
+                  />
+                );
+              }
+              case FIELD_TYPE.CHECKBOX: {
+                return (
+                  <FormFieldCheckbox
+                    key={fieldConfiguration.name}
+                    fieldConfiguration={fieldConfiguration}
+                  />
+                );
+              }
+              default:
+                return <FormFieldUnsupportedType key="UnsupportedType" />;
+            }
+          })}
+        </form>
+      )}
+    />
   );
 }

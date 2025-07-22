@@ -1,7 +1,6 @@
 import { Form } from "components/UI/Form/Form";
-import { useRegisterForm } from "./useRegisterForm";
+import { fieldsConfig } from "./RegisterForm.utils";
 
 export function RegisterForm() {
-  const { fieldsConfig } = useRegisterForm();
-    return <Form fields={fieldsConfig} />;
+  return <Form fields={fieldsConfig} />;
 }

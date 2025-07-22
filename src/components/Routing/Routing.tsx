@@ -1,13 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import { useRouting } from "./useRouting";
 import { Layout } from "components/Layout/Layout";
+import { routesConfig } from "./Routing.utils";
+import { RouteConfigInterface } from "./Routing.interface";
 
 export function Routing() {
-  const { routesConfig } = useRouting();
-
   return (
     <Routes>
-      {routesConfig.map((route) => (
+      {routesConfig.map((route: RouteConfigInterface) => (
         <Route
           element={
             <Layout layoutVariant={route.layoutVariant}>

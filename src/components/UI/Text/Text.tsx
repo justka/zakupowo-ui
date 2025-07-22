@@ -1,8 +1,6 @@
 import { TextInterface } from "./Text.interface";
-import { useText } from "./useText";
+import { prepareText } from "./Text.utils";
 
-export function Text({ children, variant = "span" }: TextInterface) {
-  const { preparedText } = useText({ children, variant });
-
-  return <>{preparedText}</>;
+export function Text({ text, variant = "span" }: TextInterface) {
+  return prepareText(text, variant);
 }

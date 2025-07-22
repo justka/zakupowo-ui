@@ -1,7 +1,6 @@
 import { Form } from "components/UI/Form/Form";
-import { useLoginForm } from "./useLoginForm";
+import { fieldsConfig } from "./LoginForm.utils";
 
 export function LoginForm() {
-  const { fieldsConfig } = useLoginForm();
-    return <Form fields={fieldsConfig} />;
+  return <Form fields={fieldsConfig} />;
 }
