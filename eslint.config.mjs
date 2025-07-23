@@ -23,6 +23,7 @@ const eslintConfig = [
     rules: {
       ...selectedConfig.rules,
       "no-unused-vars": "off",
+      "perfectionist/sort-imports": "off",
       "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
         "error",
