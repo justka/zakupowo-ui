@@ -1,4 +1,5 @@
 import "./Button.scss";
+import { DATA_TEST_ID } from "constants/dataTestId";
 import { Link } from "react-router-dom";
 import { ButtonInteface } from "./Button.interface";
 
@@ -11,6 +12,7 @@ export function Button({
   const button = (
     <button
       className="button__button"
+      data-testid={DATA_TEST_ID.BUTTON}
       onClick={onClick}
       type={type}
     >
