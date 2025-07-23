@@ -3,7 +3,6 @@ import { FieldConfigType } from "types/commonTypes";
 
 export const fieldsConfig: FieldConfigType[] = [
   { fieldType: "text", text: "Zaloguj się" },
-  { fieldType: "text", text: "Zaloguj się do aplikacji" },
   {
     fieldType: "input",
     id: "login",
@@ -26,7 +25,7 @@ export const fieldsConfig: FieldConfigType[] = [
   { buttonType: "submit", fieldType: "button", text: "Zaloguj się" },
   { fieldType: "text", text: "Nie masz jeszcze konta?" },
   {
-    fieldType: "button",
+    fieldType: "anchor",
     target: MENU.REGISTER,
     text: "Utwórz konto",
   },

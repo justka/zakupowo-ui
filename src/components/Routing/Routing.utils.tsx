@@ -1,14 +1,25 @@
-import { App } from "components/App/App";
 import { LAYOUT_VARIANT } from "constants/layout";
 import { MENU } from "constants/menu";
 import { LoginPage } from "pages/login/loginPage";
 import { RegisterPage } from "pages/register/registerPage";
-import { RouteConfigInterface } from "./Routing.interface";
+import React from "react";
+import { Navigate } from "react-router-dom";
 
-export const routesConfig: RouteConfigInterface[] = [
+export interface RouteConfig {
+  component: React.ReactElement;
+  layoutVariant: string;
+  path: string;
+}
+
+export const routesConfig: RouteConfig[] = [
   {
-    component: <App />,
-    layoutVariant: LAYOUT_VARIANT.AFTER_LOGIN,
+    component: (
+      <Navigate
+        replace
+        to={MENU.LOGIN}
+      />
+    ),
+    layoutVariant: LAYOUT_VARIANT.BEFORE_LOGIN,
     path: MENU.START,
   },
   {
