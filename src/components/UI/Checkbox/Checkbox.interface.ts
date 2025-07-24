@@ -1,8 +1,8 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, ReactElement } from "react";
 
 export interface CheckboxInterface {
   id: string;
-  label: JSX.Element;
+  label: ReactElement;
   onBlur?: () => void;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   onFocus?: () => void;

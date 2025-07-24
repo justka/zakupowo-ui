@@ -1,4 +1,6 @@
 import "./Checkbox.scss";
+import { DATA_TEST_ID } from "constants/dataTestId";
+import { prepareDataTestId } from "utils/test";
 import { CheckboxInterface } from "./Checkbox.interface";
 
 export function Checkbox({
@@ -9,9 +11,13 @@ export function Checkbox({
   onFocus,
 }: CheckboxInterface) {
   return (
-    <label className="checkbox__label">
+    <label
+      {...prepareDataTestId(DATA_TEST_ID.LABEL)}
+      className="checkbox__label"
+    >
       {label}
       <input
+        {...prepareDataTestId(DATA_TEST_ID.CHECKBOX)}
         className="checkbox__checkbox"
         id={id}
         onBlur={onBlur}
@@ -19,7 +25,10 @@ export function Checkbox({
         onFocus={onFocus}
         type="checkbox"
       />
-      <span className="checkbox__checkmark"></span>
+      <span
+        {...prepareDataTestId(DATA_TEST_ID.CHECKMARK)}
+        className="checkbox__checkmark"
+      ></span>
     </label>
   );
 }
