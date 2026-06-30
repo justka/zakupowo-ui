@@ -1,4 +1,6 @@
+import React from "react";
+
 export interface LayoutInterface {
-  children: JSX.Element;
+  children: React.ReactNode;
   layoutVariant: string;
 }

@@ -1,6 +1,7 @@
 import { LAYOUT_VARIANT } from "constants/layout";
 import { MENU } from "constants/menu";
 import { LoginPage } from "pages/login/loginPage";
+import { ProductListPage } from "pages/productList";
 import { RegisterPage } from "pages/register/registerPage";
 import React from "react";
 import { Navigate } from "react-router-dom";
@@ -31,6 +32,11 @@ export const routesConfig: RouteConfig[] = [
     component: <RegisterPage />,
     layoutVariant: LAYOUT_VARIANT.BEFORE_LOGIN,
     path: MENU.REGISTER,
+  },
+  {
+    component: <ProductListPage />,
+    layoutVariant: LAYOUT_VARIANT.AFTER_LOGIN,
+    path: MENU.PRODUCT_LIST,
   },
   {
     component: <>404</>,

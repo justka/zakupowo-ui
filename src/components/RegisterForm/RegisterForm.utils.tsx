@@ -36,7 +36,7 @@ export const fieldsConfig: FieldConfigType[] = [
     ),
     name: "areDocumentsAccepted",
   },
-  { buttonType: "submit", fieldType: FIELD_TYPE.BUTTON, text: "Utwórz konto" },
+  { fieldType: FIELD_TYPE.BUTTON, text: "Utwórz konto", type: "submit" },
   { fieldType: FIELD_TYPE.TEXT, text: "Masz konto?" },
   {
     fieldType: FIELD_TYPE.BUTTON,

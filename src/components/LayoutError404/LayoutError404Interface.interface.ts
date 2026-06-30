@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface LayoutError404Interface {
-  children: JSX.Element;
+  children: React.ReactNode;
 }

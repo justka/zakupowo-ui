@@ -22,9 +22,10 @@ Project is created using:
 ## What's done
 
 - Forms to register or log in,
+- Unit tests for some of the components
 
 ## Future plans
 
 - List of products with categories,
 - Adding, editing or deleting products
-- Write tests.
+- More tests.

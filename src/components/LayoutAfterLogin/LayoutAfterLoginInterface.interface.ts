@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface LayoutAfterLoginInterface {
-  children: JSX.Element;
+  children: React.ReactNode;
 }

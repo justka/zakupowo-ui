@@ -1,3 +1,5 @@
+import React from "react";
+
 export type FieldConfigType =
   | FieldTypeTextType
   | FieldTypeInputType
@@ -21,12 +23,12 @@ type FieldTypeAnchorType = {
 type FieldTypeButtonType = {
   fieldType: "button";
   text: string;
-  buttonType?: "button" | "submit";
+  type?: "button" | "submit";
   target?: string;
 };
 type FieldTypeCheckboxType = {
   fieldType: "checkbox";
-  label: JSX.Element;
+  label: React.ReactNode;
   name: string;
   id?: string;
 };

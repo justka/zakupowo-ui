@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { FormFieldInput } from "../../FormFieldInput/FormFieldInput";
 import { FormInterface } from "./Form.interface";
 
-export function Form({ fields }: FormInterface) {
+export function Form({ columnsQuantity, fields }: FormInterface) {
   return (
     <ReactFinalForm
       onSubmit={(value) => {
@@ -16,7 +16,10 @@ export function Form({ fields }: FormInterface) {
         console.log(value);
       }}
       render={({ handleSubmit }) => (
-        <form onSubmit={handleSubmit}>
+        <form
+          className={`grid grid-cols-${columnsQuantity} flex flex-col`}
+          onSubmit={handleSubmit}
+        >
           {fields.map((fieldConfiguration) => {
             switch (fieldConfiguration.fieldType) {
               case FIELD_TYPE.ANCHOR: {
@@ -35,7 +38,7 @@ export function Form({ fields }: FormInterface) {
                     key={fieldConfiguration.text}
                     target={fieldConfiguration.target}
                     text={fieldConfiguration.text}
-                    type={fieldConfiguration.buttonType}
+                    type={fieldConfiguration.type}
                   />
                 );
               }
